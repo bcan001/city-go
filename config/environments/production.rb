@@ -91,4 +91,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # config.action_mailer.default_url_options = { :host => ENV['MAILER_HOSTNAME'] }
+  # config.action_mailer.delivery_method = :sendmail
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.perform_deliveries = true
+
+  config.active_record.belongs_to_required_by_default = false
 end
