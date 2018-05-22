@@ -1,0 +1,10 @@
+models:
+users (has many favorite events. has many favorite cities. has many favorite venues)
+user_favorites (polymorphic table favorite_type=event,city,venue. favorite_id is foreign key.) this table ties users with their favorites.
+cities (has many events. has many venues)
+venues (belongs to one city) (has many events)
+events (belongs to one city. belongs to one venue) (schema: venue_id, date, artist_id) (BELONGS TO ONE ARTIST: what artists is playing) (description: what is the description, as a text_area, time: when is the event?, title: what is the title?)
+artists (HAS_MANY events) (schema: name, description as text area) (has_many links)
+links (belongs to one artist. social media links for artists- spotify, website, twitter, facebook, EMBED YOUTUBE LINK FOR PLAYING THEIR MUSIC) (polymorphic table link_type=spotify,website,twitter,facebook. link_id)
+votes (polymorphic table vote_type=event,artist, vote_id, user_id)
+
