@@ -41,12 +41,32 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'kaminari'
 gem 'pry-rails'
+gem 'rspotify', git: 'git://github.com/guilhermesad/rspotify'
+
+
+# testing:
+# high level overview:
+# https://hackernoon.com/your-guide-to-testing-in-ruby-on-rails-5-c8bd122e38ad
+
+# instructions actually used:
+# https://www.devmynd.com/blog/setting-up-rspec-and-capybara-in-rails-5-for-testing/
+# rails g rspec:install
+# add require "capybara/rspec" in rails_helper.rb
+
+# https://github.com/thoughtbot/factory_bot_rails
+
+
+
 # ==========================================
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  gem "database_cleaner" # added for testing
+  gem "rspec-rails" # added for testing
+  gem 'factory_bot_rails' # added for testing
 end
 
 group :development do
@@ -68,3 +88,10 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+
+
+
+
+
