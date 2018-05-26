@@ -34,8 +34,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
 
       t.timestamps null: false
+
+      # custom attrs
+      t.string :username
+      t.string :first_name
+      t.string :last_name
+      t.string :phone
+
     end
 
+    add_index :users, :username, unique: true
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
