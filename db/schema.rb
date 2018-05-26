@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 2018_05_22_162111) do
   create_table "links", force: :cascade do |t|
     t.integer "artist_id"
     t.string "link_type"
-    t.integer "link_id"
+    t.string "url"
     t.index ["artist_id", "link_type"], name: "index_links_on_artist_id_and_link_type"
-    t.index ["link_type", "link_id"], name: "index_links_on_link_type_and_link_id"
+    t.index ["link_type"], name: "index_links_on_link_type"
   end
 
   create_table "user_favorites", force: :cascade do |t|
@@ -66,14 +66,20 @@ ActiveRecord::Schema.define(version: 2018_05_22_162111) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   create_table "venues", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.integer "city_id"
+    t.string "address"
     t.index ["city_id"], name: "index_venues_on_city_id"
     t.index ["name"], name: "index_venues_on_name"
   end

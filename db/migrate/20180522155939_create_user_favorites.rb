@@ -2,7 +2,7 @@ class CreateUserFavorites < ActiveRecord::Migration[5.2]
   def change
     create_table :user_favorites do |t|
     	t.integer :user_id
-    	t.string :favorite_type
+    	t.string :favorite_type # event, city, venue
     	t.integer :favorite_id
     end
     add_index :user_favorites, [:favorite_type,:favorite_id]
