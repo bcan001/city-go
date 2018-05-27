@@ -1,16 +1,52 @@
 <%= render partial: 'layouts/support_navbar' %>
 
-<div class="container pad20">
-	<% @events.each do |event| %>
-		
-		
-			<div class="row pad5">
-				<div class="col-12">
-					<%= event %>
-				</div>	
+
+<div class="container pad20-top">
+	<div class="row">
+		<div class="col-sm-12 col-md-8">
+			<% 5.times do %>
+				<% @events.each do |event| %>
+					
+					<div class="card pad20-bottom">
+					  <div class="card-body">
+					    <%= event %>
+					  </div>
+					</div>
+						
+				<% end %>
+
+			<% end %>
+		</div>
+
+		<div class="col-sm-12 col-md-4">
+			<div class="card">
+			  <div class="card-body secondary-backing">
+			    FEATURED VENUES (dropdown)
+			  </div>
+			</div>
+
+			<div class="card pad20-top">
+			  <div class="card-body">
+			    (Venue Banner Here)
+			  </div>
 			</div>
 		
+			<div class="card pad20-top">
+			  <div class="card-body secondary-backing">
+			    FEATURED EVENTS
+			  </div>
+			</div>
 
-	<% end %>
+			<div class="card pad20-top">
+			  <div class="card-body">
+			    (Event Banner Slider Here)
+			  </div>
+			</div>
+
+
+		</div>
+
+	</div>
 </div>
+
 
