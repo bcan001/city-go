@@ -4,14 +4,15 @@ class ArtistsController < ApplicationController
 		
 		# for getting images:
 
-		RSpotify.authenticate("", "")
+		# RSpotify.authenticate("", "")
+		# artists = RSpotify::Artist.search('Arctic Monkeys')
+		# binding.pry
 
-		artists = RSpotify::Artist.search('Arctic Monkeys')
 
 		# Now you can access playlists in detail, browse featured content and more
 		# me = RSpotify::User.find('guilhermesad')
 
-		binding.pry
+		
 
 	end
 
