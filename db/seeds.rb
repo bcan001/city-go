@@ -1,4 +1,4 @@
-user = User.create(username: 'bencaneba', password: 'password', first_name: 'Ben', last_name: 'Caneba', email: 'ben_caneba@kleinschmidt.com', phone: '9062314010')
+user = User.create(username: 'bencaneba', password: 'password', first_name: 'Ben', last_name: 'Caneba', email: 'bcaneba@gmail.com', phone: '9062314010')
 
 artist = Artist.create(name: 'Ekali', description: 'Electronic Music producer from Vancouver,CA who plays everything from heavy trap to future bass music.')
 city = City.create(name: 'Chicago', state: 'IL', zip: '60622')
@@ -7,29 +7,30 @@ venue.save
 
 # binding.pry
 
-event = venue.events.build(
-	event_date: Time.now.to_datetime,
-	title: 'Ekali World Tour',
-	description: 'Ekali stops in Chicago as part of his world tour.',
-	city_id: city.id,
-	artist_id: artist.id
-)
-event.save
+8.times do
+	event = venue.events.build(
+		event_date: Time.now.to_datetime,
+		title: 'Ekali World Tour',
+		description: 'Ekali stops in Chicago as part of his world tour.',
+		city_id: city.id,
+		artist_id: artist.id
+	)
+	event.save
+
+	# votes
+	vote_event = user.votes.build(vote_type: 'event', vote_id: event.id)
+	vote_event.save
+	vote_artist = user.votes.build(vote_type: 'artist', vote_id: artist.id)
+	vote_artist.save
+end
 
 # user_favorites for the user
-user_favorite_event = user.user_favorites.build(favorite_type: 'event', favorite_id: event.id)
+user_favorite_event = user.user_favorites.build(favorite_type: 'event', favorite_id: 1)
 user_favorite_event.save
 user_favorite_city = user.user_favorites.build(favorite_type: 'city', favorite_id: city.id)
 user_favorite_city.save
 user_favorite_venue = user.user_favorites.build(favorite_type: 'venue', favorite_id: venue.id)
 user_favorite_venue.save
-
-
-# votes
-vote_event = user.votes.build(vote_type: 'event', vote_id: event.id)
-vote_event.save
-vote_artist = user.votes.build(vote_type: 'artist', vote_id: artist.id)
-vote_artist.save
 
 
 # links (belongs to one artist. social media links for artists- spotify, website, twitter, facebook, EMBED YOUTUBE LINK FOR PLAYING THEIR MUSIC)
