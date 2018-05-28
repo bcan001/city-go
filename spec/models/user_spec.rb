@@ -7,7 +7,7 @@ RSpec.describe User, :type => :model do
   it { should have_many(:votes) }
 
   before(:each) do |example|
-		@user = FactoryBot.build(:user, first_name: 'Ben', last_name: 'Caneba', email: "b.caneba@yahoo.com", username: "bcan001", password: 'password')
+		@user = FactoryBot.build(:user)
 	end
 
   # test validations
