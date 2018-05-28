@@ -18,7 +18,9 @@
     <%= render partial: 'advertisements/top_banner' %>
     <%= render partial: 'layouts/main_navbar' %>
     
-    <%= yield %>
+    <div id="main" role="main">
+      <%= yield %>
+    </div>
 
     <%= render partial: 'layouts/footer' %>
   </body>
