@@ -11,8 +11,6 @@ class Event < ApplicationRecord
 
 	scope :todays_events, -> (limit) { where("events.event_date >= ?", Date.today).limit(limit) }
 
-	def self.featured_events(limit)
-		Event.order(:event_date).select {|e| e.features.any?}.take(limit)
-	end
+
 
 end
