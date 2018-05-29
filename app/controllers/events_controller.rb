@@ -4,14 +4,12 @@ class EventsController < ApplicationController
 
 		# RSpotify.authenticate("", "")
 		# artists = RSpotify::Artist.search('Arctic Monkeys')
-		# binding.pry
 
-		@events = Event.all
+		@events = Event.todays_events(10)
+		@featured_events = Event.featured_events(5)
+		@featured_venues = Venue.featured_venues(5)
 
-		
-		# @events = @events.select {|event| event.event_date.today == true}
 		# binding.pry
-		# @featured_events =
 
 	end
 

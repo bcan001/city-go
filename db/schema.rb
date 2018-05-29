@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_22_162111) do
+ActiveRecord::Schema.define(version: 2018_05_29_032813) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 2018_05_22_162111) do
     t.index ["artist_id"], name: "index_events_on_artist_id"
     t.index ["event_date", "city_id"], name: "index_events_on_event_date_and_city_id"
     t.index ["venue_id"], name: "index_events_on_venue_id"
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string "feature_type"
+    t.integer "feature_id"
+    t.index ["feature_type", "feature_id"], name: "index_features_on_feature_type_and_feature_id"
   end
 
   create_table "links", force: :cascade do |t|
