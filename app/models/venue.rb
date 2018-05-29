@@ -9,8 +9,6 @@ class Venue < ApplicationRecord
 	validates :description, presence: true
 	validates :address, presence: true
 
-	def self.featured_venues(limit)
-		Venue.all.select {|v| v.features.any?}.take(limit)
-	end
+
 
 end
