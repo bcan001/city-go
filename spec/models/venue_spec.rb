@@ -5,6 +5,7 @@ RSpec.describe Venue, :type => :model do
 	# test associations
 	it { should have_many(:events) }
   it { should belong_to(:city) }
+  it { should have_many(:features) }
 
   before(:each) do |example|
 		@venue = FactoryBot.build(:venue)

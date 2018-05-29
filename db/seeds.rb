@@ -2,10 +2,20 @@ user = User.create(username: 'bencaneba', password: 'password', first_name: 'Ben
 
 artist = Artist.create(name: 'Ekali', description: 'Electronic Music producer from Vancouver,CA who plays everything from heavy trap to future bass music.')
 city = City.create(name: 'Chicago', state: 'IL', zip: '60622')
+
 venue = city.venues.build(name: 'Concord Music Hall', description: 'Large music hall that hosts a diverse variety of music shows', address: '2047 N Milwaukee Ave')
 venue.save
 
-# binding.pry
+venue2 = city.venues.build(name: 'Soundbar', description: 'Large music hall that hosts a diverse variety of music shows', address: '2047 N Milwaukee Ave')
+venue2.save
+
+venue3 = city.venues.build(name: 'The Metro', description: 'Large music hall that hosts a diverse variety of music shows', address: '2047 N Milwaukee Ave')
+venue3.save
+
+venue4 = city.venues.build(name: 'Lincoln Hall', description: 'Large music hall that hosts a diverse variety of music shows', address: '2047 N Milwaukee Ave')
+venue4.save
+
+
 
 8.times do
 	event = venue.events.build(
@@ -23,6 +33,18 @@ venue.save
 	vote_artist = user.votes.build(vote_type: 'artist', vote_id: artist.id)
 	vote_artist.save
 end
+
+# features
+Feature.create(feature_type: 'Event', feature_id: 1)
+Feature.create(feature_type: 'Event', feature_id: 2)
+Feature.create(feature_type: 'Event', feature_id: 3)
+Feature.create(feature_type: 'Event', feature_id: 4)
+Feature.create(feature_type: 'Venue', feature_id: 1)
+Feature.create(feature_type: 'Venue', feature_id: 2)
+Feature.create(feature_type: 'Venue', feature_id: 3)
+Feature.create(feature_type: 'Venue', feature_id: 4)
+
+
 
 # user_favorites for the user
 user_favorite_event = user.user_favorites.build(favorite_type: 'event', favorite_id: 1)

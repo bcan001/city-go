@@ -7,4 +7,4 @@ events (belongs to one city. belongs to one venue) (schema: venue_id, date, arti
 artists (HAS_MANY events) (schema: name, description as text area) (has_many links)
 links (belongs to one artist. social media links for artists- spotify, website, twitter, facebook, EMBED YOUTUBE LINK FOR PLAYING THEIR MUSIC) (polymorphic table link_type=spotify,website,twitter,facebook. link_id)
 votes (polymorphic table vote_type=event,artist, vote_id, user_id)
-
+features (polymophic, feature_type=event,venue, feature_id=)
