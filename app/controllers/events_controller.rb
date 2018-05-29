@@ -8,6 +8,11 @@ class EventsController < ApplicationController
 
 		@events = Event.all
 
+		
+		# @events = @events.select {|event| event.event_date.today == true}
+		# binding.pry
+		# @featured_events =
+
 	end
 
 
