@@ -9,9 +9,17 @@ class EventsController < ApplicationController
 		@featured_events = Feature.featured_events(5)
 		@featured_venues = Feature.featured_venues(5)
 
-		binding.pry
 
 	end
+
+	def show
+		@event = Event.find(params[:id])
+	end
+
+
+
+
+
 
 
 end
