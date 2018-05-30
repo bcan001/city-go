@@ -58,33 +58,57 @@
 		</div>
 
 		<div class="col-sm-12 col-md-4">
-			<div class="card">
-			  <div class="card-body secondary-backing">
-			    FEATURED VENUES (dropdown)
-			  </div>
+
+
+			<div class="card secondary-backing">
+		    <div class="dropdown">
+				  <button class="btn btn-warning dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    FEATURED VENUES
+				  </button>
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:100%;">
+				  	<%= render partial: 'features/featured_venue', collection: @featured_venues, as: :feature %>
+				  </div>
+				</div>
 			</div>
 
 			<div class="card pad20-top">
-			  <div class="card-body">
-			    (Venue Banner Here)
-			  </div>
+				<%= image_tag '/assets/featured_venue.png', height: '318px' %>
 			</div>
-		
+
+
 			<div class="card pad20-top">
-			  <div class="card-body secondary-backing">
+			  <div class="card-body secondary-backing text-center">
 			    FEATURED EVENTS
 			  </div>
 			</div>
 
 			<div class="card pad20-top">
 			  <div class="card-body">
-			    (Event Banner Slider Here)
+			    
+			  	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				  <ol class="carousel-indicators">
+				    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				  </ol>
+				  <div class="carousel-inner">
+				    <%= render partial: 'features/featured_event' %>
+				  </div>
+				  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+				</div>
+
+
 			  </div>
 			</div>
 
-
 		</div>
-
 	</div>
 </div>
 
