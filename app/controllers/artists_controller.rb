@@ -12,11 +12,12 @@ class ArtistsController < ApplicationController
 		# Now you can access playlists in detail, browse featured content and more
 		# me = RSpotify::User.find('guilhermesad')
 
-		
+		@artists = Artist.all
 
 	end
 
 	def show
+		@artist = Artist.find(params[:id])
 	end
 
 	def new

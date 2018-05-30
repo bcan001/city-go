@@ -2,8 +2,10 @@ require "rails_helper"
 
 RSpec.describe EventsController, :type => :controller do
 
-	before :each do
-    @event = FactoryBot.create(:event)
+	before :each do |example|
+    unless example.metadata[:skip_test]
+      @event = FactoryBot.create(:event)
+    end
   end
 
 	describe "GET index" do
