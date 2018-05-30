@@ -1,0 +1,2 @@
+<% featured_venue = Venue.find(feature.feature_id) %>
+<%= link_to featured_venue.name, venue_path(featured_venue), class: 'dropdown-item' %>
