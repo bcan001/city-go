@@ -5,7 +5,7 @@ RSpec.describe Event, :type => :model do
 	# test associations
 	it { should belong_to(:city) }
 	it { should belong_to(:venue) }
-	# it { should belong_to(:artist) }
+	it { should have_many(:artists) }
   it { should have_many(:features) }
 
 
