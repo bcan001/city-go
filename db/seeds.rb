@@ -23,9 +23,10 @@ venue4.save
 		title: 'Ekali World Tour',
 		description: 'Ekali stops in Chicago as part of his world tour.',
 		city_id: city.id,
-		artist_id: artist.id
 	)
 	event.save
+
+	EventRelationship.create(event_id: event.id, artist_id: artist.id)
 
 	# votes
 	vote_event = user.votes.build(vote_type: 'event', vote_id: event.id)

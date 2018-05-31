@@ -12,7 +12,8 @@ class EventsController < ApplicationController
 	end
 
 	def show
-		@event = Event.joins(:artist,:venue).find(params[:id])
+		# @event = Event.joins(:artist,:venue).find(params[:id])
+		@event = Event.find(params[:id])
 	end
 
 
