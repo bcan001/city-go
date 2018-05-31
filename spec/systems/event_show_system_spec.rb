@@ -3,7 +3,8 @@ require "rails_helper"
 RSpec.describe "the user clicks on an event to display it from the events index page", :type => :feature do
 
   before :each do
-    @event = FactoryBot.create(:event)
+  	@venue = FactoryBot.create(:venue)
+    @event = FactoryBot.create(:event, venue: @venue)
   end
 
   it "brings the user to the event show page" do

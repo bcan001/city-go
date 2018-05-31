@@ -3,17 +3,14 @@
 
 
 <div class="container pad40-top">
-	<div class="row">
-		<div class="col-sm-12">
-			<h3><%= link_to @event.artist.name, artist_path(@event.artist) %></h3>
-			<%= link_to 'Follow', root_path %>
+	<% @event.artists.each do |artist| %>
+		<div class="row">
+			<div class="col-sm-12">
+				<h3><%= link_to artist.name, artist_path(artist) %></h3>
+				<%= link_to 'Follow', root_path %>
+			</div>
 		</div>
-	</div>
-	<div class="row pad20-top">
-		<div class="col-sm-12">
-			<h5><%= @event.artist.description %></h5>
-		</div>
-	</div>
+	<% end %>
 </div>
 
 

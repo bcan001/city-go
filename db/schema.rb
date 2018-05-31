@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_29_032813) do
+ActiveRecord::Schema.define(version: 2018_05_31_004158) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -25,14 +25,18 @@ ActiveRecord::Schema.define(version: 2018_05_29_032813) do
     t.index ["name", "state"], name: "index_cities_on_name_and_state"
   end
 
+  create_table "event_relationships", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "artist_id"
+    t.index ["event_id", "artist_id"], name: "index_event_relationships_on_event_id_and_artist_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.datetime "event_date"
     t.string "title"
     t.text "description"
     t.integer "city_id"
     t.integer "venue_id"
-    t.integer "artist_id"
-    t.index ["artist_id"], name: "index_events_on_artist_id"
     t.index ["event_date", "city_id"], name: "index_events_on_event_date_and_city_id"
     t.index ["venue_id"], name: "index_events_on_venue_id"
   end
