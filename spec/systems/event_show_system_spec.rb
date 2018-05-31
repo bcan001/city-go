@@ -10,7 +10,7 @@ RSpec.describe "the user clicks on an event to display it from the events index 
   it "brings the user to the event show page" do
   	visit root_path
     first('.event-title').click
-    expect(page).to have_content "Kygo Kid's In Love Tour at the United Center"
+    expect(page).to have_content @event.title
 	end
 
   
