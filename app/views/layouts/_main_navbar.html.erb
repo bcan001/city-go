@@ -8,11 +8,11 @@
     <ul class="navbar-nav mr-auto">
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Today's Events</a>
+        <%= link_to "Today's Events", root_path, class: 'nav-link' %>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Tomorrow's Events</a>
+        <%= link_to "Tomorrow's Events", tomorrows_events_path, class: 'nav-link' %>
       </li>
    
       <li class="nav-item dropdown">
