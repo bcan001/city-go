@@ -17,6 +17,6 @@ class Event < ApplicationRecord
 
 	scope :todays_events, -> (limit) { where("events.event_date >= ?", Date.today).limit(limit) }
 
-
+	scope :tomorrows_events, -> (limit) { where("events.event_date == ?", Date.today + 1).limit(limit) }
 
 end
