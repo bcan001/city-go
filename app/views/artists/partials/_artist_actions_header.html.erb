@@ -2,7 +2,20 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
+
         &nbsp;
+
+        <div class="card secondary-backing pad20-bottom">
+			    <div class="dropdown">
+					  <button class="btn btn-warning dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    FEATURED VENUES
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:100%;">
+							<%= link_to 'UPCOMING EVENTS', artist_path(@artist), class: 'dropdown-item' %>
+							<%= link_to 'PAST EVENTS', artist_path(@artist), class: 'dropdown-item' %>
+					  </div>
+					</div>
+				</div>
         
       </div>
     </div>
