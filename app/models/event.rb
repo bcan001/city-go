@@ -15,8 +15,8 @@ class Event < ApplicationRecord
 	validates :title, presence: true
 	validates :description, presence: true
 
-	scope :todays_events, -> (limit) { where("events.event_date >= ?", Date.today).limit(limit) }
+	scope :todays_events, -> (limit) { where("(events.event_date >= ?) AND (events.event_date < ?)", Date.today, Date.today + 1).limit(limit) }
 
-	scope :tomorrows_events, -> (limit) { where("events.event_date == ?", Date.today + 1).limit(limit) }
+	scope :tomorrows_events, -> (limit) { where("(events.event_date >= ?) AND (events.event_date < ?)", Date.today + 1, Date.today + 2).limit(limit) }
 
 end

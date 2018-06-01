@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 		# RSpotify.authenticate("", "")
 		# artists = RSpotify::Artist.search('Arctic Monkeys')
 
-		@events = Event.todays_events(10)
+		@events = Event.todays_events(20)
 		@featured_events = Feature.featured_events(5)
 		@featured_venues = Feature.featured_venues(5)
 
@@ -17,7 +17,7 @@ class EventsController < ApplicationController
 
 
 	def tomorrows_events
-		@events = Event.tomorrows_events(10)
+		@events = Event.tomorrows_events(20)
 		@featured_events = Feature.featured_events(5)
 		@featured_venues = Feature.featured_venues(5)
 	end
