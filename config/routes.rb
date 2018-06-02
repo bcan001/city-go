@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get '/tomorrows_events', to: 'events#tomorrows_events', as: 'tomorrows_events'
 
+  get 'artists/:id/upcoming_events', to: 'artists#upcoming_events', as: 'artist_upcoming_events'
+  get 'artists/:id/past_events', to: 'artists#past_events', as: 'artist_past_events'
 
 
   resources :events

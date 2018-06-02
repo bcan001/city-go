@@ -11,8 +11,8 @@
 					    UPCOMING EVENTS
 					  </button>
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:100%;">
-							<%= link_to 'UPCOMING EVENTS', artist_path(@artist), class: 'dropdown-item' %>
-							<%= link_to 'PAST EVENTS', artist_path(@artist), class: 'dropdown-item' %>
+							<%= link_to 'UPCOMING EVENTS', artist_upcoming_events_path(id: @artist.id), remote: true, class: 'dropdown-item' %>
+							<%= link_to 'PAST EVENTS', artist_past_events_path(id: @artist.id), remote: true, class: 'dropdown-item' %>
 					  </div>
 					</div>
 				</div>
