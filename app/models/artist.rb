@@ -14,6 +14,10 @@ class Artist < ApplicationRecord
 		events.upcoming_events(limit)
 	end
 
+	def past_events(limit)
+		events.past_events(limit)
+	end
+
 
 
 end

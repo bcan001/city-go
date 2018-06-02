@@ -1,13 +1,11 @@
 class ArtistsController < ApplicationController
 
 	def index
-		
 		# for getting images:
 
 		# RSpotify.authenticate("", "")
 		# artists = RSpotify::Artist.search('Arctic Monkeys')
 		# binding.pry
-
 
 		# Now you can access playlists in detail, browse featured content and more
 		# me = RSpotify::User.find('guilhermesad')
@@ -18,6 +16,22 @@ class ArtistsController < ApplicationController
 
 	def show
 		@artist = Artist.find(params[:id])
+	end
+
+	def upcoming_events
+		@artist = Artist.find(params[:id])
+		@events = @artist.upcoming_events(10)
+		respond_to do |format|
+		  format.js
+		end
+	end
+
+	def past_events
+		@artist = Artist.find(params[:id])
+		@events = @artist.past_events(10)
+		respond_to do |format|
+		  format.js
+		end
 	end
 
 	def new
