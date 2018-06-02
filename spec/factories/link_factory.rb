@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :link do
-    artist_id nil
+  	owner_type 'Artist'
+    owner_id nil
     link_type 'facebook'
     url 'www.facebook.com/ekali'
   end

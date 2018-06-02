@@ -48,11 +48,13 @@ ActiveRecord::Schema.define(version: 2018_05_31_004158) do
   end
 
   create_table "links", force: :cascade do |t|
-    t.integer "artist_id"
+    t.string "owner_type"
+    t.integer "owner_id"
     t.string "link_type"
     t.string "url"
-    t.index ["artist_id", "link_type"], name: "index_links_on_artist_id_and_link_type"
     t.index ["link_type"], name: "index_links_on_link_type"
+    t.index ["owner_id", "link_type"], name: "index_links_on_owner_id_and_link_type"
+    t.index ["owner_type", "owner_id"], name: "index_links_on_owner_type_and_owner_id"
   end
 
   create_table "user_favorites", force: :cascade do |t|

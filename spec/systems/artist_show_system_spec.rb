@@ -3,7 +3,8 @@ require "rails_helper"
 RSpec.describe "the user clicks on an artist to display it's description'", :type => :feature do
 
   before :each do
-  	@artist = FactoryBot.create(:artist)
+    @link = FactoryBot.create(:link, owner_type: 'Artist', owner_id: 1, link_type: 'website', url: 'https://www.ekalimusic.com/')
+  	@artist = FactoryBot.create(:artist, links: [@link])
   	@venue = FactoryBot.create(:venue)
   	@event = FactoryBot.create(:event, artists: [@artist], venue: @venue)
 
@@ -20,9 +21,11 @@ RSpec.describe "the user clicks on an artist to display it's description'", :typ
   end
 
   it "shows past events when the past events dropdown is selected" do
-    
+    # from dropdown
+  end
 
-
+  it "should show a link if the artist has a link" do
+    expect(page).to have_content @link.url
   end
 
   
