@@ -21,6 +21,16 @@
 					<%= @venue.city.name %>, <%= @venue.city.state %>
 				</div>
 
+				<div class="venue-text pad10-top pad10-bottom">
+					<% @venue.links.each do |link| %>
+						<div class="row">
+      				<div class="col-12">
+								<%= link_to link.url, link.url %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+
 		
       </div>
     </div>

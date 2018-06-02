@@ -5,12 +5,21 @@
 <div class="container pad40-top">
 	<% @event.artists.each do |artist| %>
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-12 col-md-8">
 				<h3><%= link_to artist.name, artist_path(artist), class: 'artist-show' %></h3>
 				<%= link_to 'Follow', root_path %>
+			</div>
+
+			<div class="col-sm-12 col-md-4">
+				<%= image_tag '/assets/advertisement_tall3.png', width: '100%', class: 'pad15-top' %>
+
+
 			</div>
 		</div>
 	<% end %>
 </div>
 
+<div class="container pad20-top">
+	<%= image_tag '/assets/advertisement_long.png', width: '100%' %>
 
+</div>

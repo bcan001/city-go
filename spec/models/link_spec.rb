@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe Link, :type => :model do
 
 	# test associations
-	it { should belong_to(:artist) }
+	it { should belong_to(:owner) }
 
 
   before(:each) do |example|

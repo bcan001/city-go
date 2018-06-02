@@ -10,8 +10,8 @@
 					    UPCOMING EVENTS
 					  </button>
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:100%;">
-							<%= link_to 'UPCOMING EVENTS', venue_path(@venue), class: 'dropdown-item' %>
-							<%= link_to 'PAST EVENTS', venue_path(@venue), class: 'dropdown-item' %>
+							<%= link_to 'UPCOMING EVENTS', venue_upcoming_events_path(id: @venue.id), remote: true, class: 'dropdown-item' %>
+							<%= link_to 'PAST EVENTS', venue_past_events_path(id: @venue.id), remote: true, class: 'dropdown-item' %>
 					  </div>
 					</div>
 				</div>

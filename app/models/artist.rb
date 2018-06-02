@@ -1,6 +1,7 @@
 class Artist < ApplicationRecord
 
-	has_many :links, dependent: :destroy
+	has_many :links, as: :owner, dependent: :destroy
+
 
 	# has_many :events
 	has_many :event_relationships

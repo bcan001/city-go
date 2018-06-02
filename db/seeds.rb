@@ -102,29 +102,31 @@ user_favorite_venue = user.user_favorites.build(favorite_type: 'venue', favorite
 user_favorite_venue.save
 
 
+
+
+
 # links (belongs to one artist. social media links for artists- spotify, website, twitter, facebook, EMBED YOUTUBE LINK FOR PLAYING THEIR MUSIC)
 
-link_spotify = artist.links.build(link_type: 'spotify', url: 'www.spotify.com/ekali')
+link_spotify = artist.links.build(link_type: 'spotify', url: 'https://www.spotify.com/ekali')
 link_spotify.save
-link_website = artist.links.build(link_type: 'website', url: 'www.website.com/ekali')
+link_website = artist.links.build(link_type: 'website', url: 'https://ekalimusic.com')
 link_website.save
-link_twitter = artist.links.build(link_type: 'twitter', url: 'www.twitter.com/ekali')
+link_twitter = artist.links.build(link_type: 'twitter', url: 'https://www.twitter.com/ekali')
 link_twitter.save
-link_facebook = artist.links.build(link_type: 'facebook', url: 'www.facebook.com/ekali')
+link_facebook = artist.links.build(link_type: 'facebook', url: 'https://www.facebook.com/ekali')
 link_facebook.save
-link_youtube = artist.links.build(link_type: 'youtube', url: 'www.youtube.com/ekali')
+link_youtube = artist.links.build(link_type: 'youtube', url: 'https://www.youtube.com/ekali')
 link_youtube.save
 
 
-
-
-
-
-
-
-
-
-
+link_website_venue = venue.links.build(link_type: 'website', url: 'https://concordmusichall.com/')
+link_website_venue.save
+link_website_venue2 = venue2.links.build(link_type: 'website', url: 'http://sound-bar.com/')
+link_website_venue2.save
+link_website_venue3 = venue3.links.build(link_type: 'website', url: 'http://metrochicago.com/')
+link_website_venue3.save
+link_website_venue4 = venue4.links.build(link_type: 'website', url: 'http://www.lh-st.com/')
+link_website_venue4.save
 
 
 

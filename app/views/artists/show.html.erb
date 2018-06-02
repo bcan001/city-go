@@ -5,8 +5,8 @@
 <div class="container pad40-top">
 
 	<div class="row">
-		<div class="col-sm-12">
-			
+		<div class="col-sm-12 col-md-8">
+
 
 			<div id='selected-events'>
 				<% @artist.upcoming_events(10).each do |event| %>
@@ -61,6 +61,15 @@
 
 			
 		</div>
+
+		<div class="col-sm-12 col-md-4">
+
+
+			<%= image_tag '/assets/advertisement_tall.png', width: '100%' %>
+
+
+		</div>
+
 	</div>
 
 </div>
