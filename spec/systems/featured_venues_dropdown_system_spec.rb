@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "the user clicks on a featured venue from the dropdown and it goes to the show page of that venue", :type => :feature do
+RSpec.describe "the featured venue dropdown", :type => :feature do
 
   before :each do
     @venue = FactoryBot.create(:venue)
@@ -8,7 +8,7 @@ RSpec.describe "the user clicks on a featured venue from the dropdown and it goe
     @featured_venues = [@venue]
   end
 
-  it "brings the user to the venue show page" do
+  it "brings the user to the venue show page with the featured venues on it" do
   	visit root_path
     # first('a.dropdown-item.featured-venue').click
     # select "option_name_here", :from => "organizationSelect"

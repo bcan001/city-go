@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :events
   resources :artists
   resources :venues
+  resources :searches
 
 
   root 'events#index'

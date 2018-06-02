@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "the user clicks on an artist to display it's description'", :type => :feature do
+RSpec.describe "the artist show", :type => :feature do
 
   before :each do
     @link = FactoryBot.create(:link, owner_type: 'Artist', owner_id: 1, link_type: 'website', url: 'https://www.ekalimusic.com/')

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "the user clicks on a venue to display it from the events show", :type => :feature do
+RSpec.describe "the venue show", :type => :feature do
 
   before :each do
     @link = FactoryBot.create(:link, owner_type: 'Venue', owner_id: 1, link_type: 'website', url: 'https://www.themidchicago.com/')
@@ -12,7 +12,7 @@ RSpec.describe "the user clicks on a venue to display it from the events show", 
     first('.venue-show-link').click
   end
 
-  it "brings the user to the venue show page" do
+  it "link works and brings the user to the venue show page" do
     expect(page).to have_content @venue.name
 	end
 
