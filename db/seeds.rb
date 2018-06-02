@@ -2,7 +2,9 @@ user = User.create(username: 'bencaneba', password: 'password', first_name: 'Ben
 
 artist = Artist.create(name: 'Ekali', description: 'Electronic Music producer from Vancouver,CA who plays everything from heavy trap to future bass music.')
 artist2 = Artist.create(name: 'Anderson Paak', description: 'Brandon Paak Anderson, better known by his stage name Anderson Paak, is an American rapper, songwriter, drummer, singer and record producer from Oxnard, California.')
-artist3 = Artist.create(name: 'THE FREE NATIONALS', description: "Anderson .Paak's backing band consisting of Jose Rios, Ron Tnava Avant, Kelsey Gonzales, and Callum Connor.")
+artist3 = Artist.create(name: 'THE FREE NATIONALS', description: "Anderson Paak's backing band consisting of Jose Rios, Ron Tnava Avant, Kelsey Gonzales, and Callum Connor.")
+artist4 = Artist.create(name: 'Kendrick Lamar', description: "One of the most distinguished rappers in the game today, from Compton, CA.")
+
 
 
 city = City.create(name: 'Chicago', state: 'IL', zip: '60622')
@@ -50,6 +52,32 @@ end
 
 	EventRelationship.create(event_id: event.id, artist_id: artist2.id)
 	EventRelationship.create(event_id: event.id, artist_id: artist3.id)
+
+end
+
+# past events
+5.times do
+	event = venue.events.build(
+		event_date: Time.now.to_datetime - 1,
+		title: 'The FREE NATIONALS play in Chicago',
+		description: 'THE FREE NATIONALS play in Chicago!',
+		city_id: city.id,
+	)
+	event.save
+	EventRelationship.create(event_id: event.id, artist_id: artist3.id)
+end
+
+# past events only
+7.times do
+	event = venue.events.build(
+		event_date: Time.now.to_datetime - 1,
+		title: 'Kendrick Lamar DAMN Tour in Chicago',
+		description: 'The DAMN Tour stops in Chicago for a special performance',
+		city_id: city.id,
+	)
+	event.save
+
+	EventRelationship.create(event_id: event.id, artist_id: artist4.id)
 
 end
 
