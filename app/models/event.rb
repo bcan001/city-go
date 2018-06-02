@@ -19,4 +19,15 @@ class Event < ApplicationRecord
 
 	scope :tomorrows_events, -> (limit) { where("(events.event_date >= ?) AND (events.event_date < ?)", Date.today + 1, Date.today + 2).limit(limit) }
 
+	scope :upcoming_events, -> (limit) { where("events.event_date >= ?", Date.today).limit(limit) }
+
 end
+
+
+
+
+
+
+
+
+
