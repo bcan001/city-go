@@ -5,6 +5,7 @@ RSpec.describe User, :type => :model do
 	# test associations
 	it { should have_many(:user_favorites) }
   it { should have_many(:votes) }
+  it { should have_many(:user_rsvps) }
 
   before(:each) do |example|
 		@user = FactoryBot.build(:user)

@@ -5,5 +5,6 @@ FactoryBot.define do
     description "Kygo comes to Chicago to play a concert at the United Center in Chicago!"
     city_id nil
     venue_id nil
+    ticket_price '$39.99'
   end
 end

@@ -1,6 +1,7 @@
 models:
 users (has many favorite events. has many favorite cities. has many favorite venues)
 user_favorites (polymorphic table favorite_type=event,city,venue. favorite_id is foreign key.) this table ties users with their favorites.
+user_rsvps (join table)
 cities (has many events. has many venues)
 venues (belongs to one city) (has many events)
 events (belongs to one city. belongs to one venue) (schema: venue_id, date) (description: what is the description, as a text_area, time: when is the event?, title: what is the title?)

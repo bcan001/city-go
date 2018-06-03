@@ -12,4 +12,6 @@ class User < ApplicationRecord
 
   has_many :user_favorites
   has_many :votes
+
+  has_many :user_rsvps, dependent: :destroy
 end

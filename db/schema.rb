@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_31_004158) do
+ActiveRecord::Schema.define(version: 2018_06_03_152055) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2018_05_31_004158) do
     t.text "description"
     t.integer "city_id"
     t.integer "venue_id"
+    t.string "ticket_price"
     t.index ["event_date", "city_id"], name: "index_events_on_event_date_and_city_id"
     t.index ["venue_id"], name: "index_events_on_venue_id"
   end
@@ -63,6 +64,13 @@ ActiveRecord::Schema.define(version: 2018_05_31_004158) do
     t.integer "favorite_id"
     t.index ["favorite_type", "favorite_id"], name: "index_user_favorites_on_favorite_type_and_favorite_id"
     t.index ["user_id", "favorite_type"], name: "index_user_favorites_on_user_id_and_favorite_type"
+  end
+
+  create_table "user_rsvps", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_user_rsvps_on_event_id"
+    t.index ["user_id", "event_id"], name: "index_user_rsvps_on_user_id_and_event_id"
   end
 
   create_table "users", force: :cascade do |t|
