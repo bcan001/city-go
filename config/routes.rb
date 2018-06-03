@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  resources :users_profile, :controller => 'users'
+
   get '/tomorrows_events', to: 'events#tomorrows_events', as: 'tomorrows_events'
 
   get 'artists/:id/upcoming_events', to: 'artists#upcoming_events', as: 'artist_upcoming_events'
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   resources :artists
   resources :venues
   resources :searches
+  resources :user_rsvps
 
 
   root 'events#index'
