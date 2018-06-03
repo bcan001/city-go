@@ -7,6 +7,8 @@ class Event < ApplicationRecord
 	# NEEDS TO BECOME A POSSIBLE EVENT RELATIONSHIP JOIN TABLE WITH ARTISTS
 	has_many :event_relationships
   has_many :artists, through: :event_relationships
+
+  has_many :user_rsvps, dependent: :destroy
 	
 
 	has_many :features, as: :feature

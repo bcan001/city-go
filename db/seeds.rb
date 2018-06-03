@@ -29,6 +29,7 @@ venue4.save
 		title: 'Ekali World Tour',
 		description: 'Ekali stops in Chicago as part of his world tour.',
 		city_id: city.id,
+		ticket_price: '$19.99'
 	)
 	event.save
 
@@ -39,6 +40,11 @@ venue4.save
 	vote_event.save
 	vote_artist = user.votes.build(vote_type: 'artist', vote_id: artist.id)
 	vote_artist.save
+
+
+	# user_rsvps
+	user_rsvp = user.user_rsvps.build(event_id: event.id)
+	user_rsvp.save
 end
 
 5.times do
@@ -47,6 +53,7 @@ end
 		title: 'Anderson Paak and the FREE NATIONALS',
 		description: 'Anderson Paak and group THE FREE NATIONALS play in Chicago!',
 		city_id: city.id,
+		ticket_price: '$19.99'
 	)
 	event.save
 
@@ -62,6 +69,7 @@ end
 		title: 'The FREE NATIONALS play in Chicago',
 		description: 'THE FREE NATIONALS play in Chicago!',
 		city_id: city.id,
+		ticket_price: '$19.99'
 	)
 	event.save
 	EventRelationship.create(event_id: event.id, artist_id: artist3.id)
@@ -74,6 +82,7 @@ end
 		title: 'Kendrick Lamar DAMN Tour in Chicago',
 		description: 'The DAMN Tour stops in Chicago for a special performance',
 		city_id: city.id,
+		ticket_price: '$19.99'
 	)
 	event.save
 

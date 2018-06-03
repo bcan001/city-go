@@ -7,6 +7,7 @@ RSpec.describe Event, :type => :model do
 	it { should belong_to(:venue) }
 	it { should have_many(:artists) }
   it { should have_many(:features) }
+  it { should have_many(:user_rsvps) }
 
 
   before(:each) do |example|

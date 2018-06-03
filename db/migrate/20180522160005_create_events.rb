@@ -6,6 +6,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
     	t.text :description
     	t.integer :city_id
     	t.integer :venue_id
+        t.string :ticket_price
     end
     add_index :events, [:event_date,:city_id]
     add_index :events, :venue_id
