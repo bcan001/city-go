@@ -69,6 +69,9 @@ ActiveRecord::Schema.define(version: 2018_06_03_152055) do
   create_table "user_rsvps", force: :cascade do |t|
     t.integer "user_id"
     t.integer "event_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
     t.index ["event_id"], name: "index_user_rsvps_on_event_id"
     t.index ["user_id", "event_id"], name: "index_user_rsvps_on_user_id_and_event_id"
   end
