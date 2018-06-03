@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="user-profile-actions-navbar">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+	      <% if @user == current_user %>
+	        <div class="card secondary-backing pad20-top pad20-bottom">
+				    <div class="dropdown">
+						  <button class="btn btn-warning dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    UPCOMING RSVP EVENTS
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:100%;">
+								<%= link_to 'UPCOMING RSVP EVENTS', venue_upcoming_events_path(id: 1), remote: true, class: 'dropdown-item' %>
+								<%= link_to 'PAST RSVP EVENTS', venue_past_events_path(id: 1), remote: true, class: 'dropdown-item' %>
+						  </div>
+						</div>
+					</div>
+				<% end %>
+
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
