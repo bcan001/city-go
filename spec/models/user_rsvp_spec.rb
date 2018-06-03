@@ -19,10 +19,20 @@ RSpec.describe UserRsvp, :type => :model do
     expect(@user_rsvp).to be_valid
   end
 
-  # it "should not be valid when built without a user_id" do
-  # 	@user_rsvp.user_id = nil
-  #   expect(@user_favorite).not_to be_valid
-  # end
+  it "should not be valid when built without a first_name" do
+  	@user_rsvp.first_name = nil
+    expect(@user_rsvp).not_to be_valid
+  end
+
+  it "should not be valid when built without a last_name" do
+    @user_rsvp.last_name = nil
+    expect(@user_rsvp).not_to be_valid
+  end
+
+  it "should not be valid when built without a email" do
+    @user_rsvp.email = nil
+    expect(@user_rsvp).not_to be_valid
+  end
 
 
 

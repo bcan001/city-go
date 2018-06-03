@@ -43,7 +43,7 @@ venue4.save
 
 
 	# user_rsvps
-	user_rsvp = user.user_rsvps.build(event_id: event.id)
+	user_rsvp = user.user_rsvps.build(event_id: event.id, first_name: 'Benjamin', last_name: 'Caneba', email: 'b.caneba@yahoo.com')
 	user_rsvp.save
 end
 
