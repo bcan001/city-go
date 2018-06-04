@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :venues
   resources :searches
   resources :user_rsvps
+  resources :votes
+
 
 
   root 'events#index'
