@@ -6,7 +6,7 @@ RSpec.describe "the artist show", :type => :feature do
     @link = FactoryBot.create(:link, owner_type: 'Artist', owner_id: 1, link_type: 'website', url: 'https://www.ekalimusic.com/')
   	@artist = FactoryBot.create(:artist, links: [@link])
   	@venue = FactoryBot.create(:venue)
-  	@event = FactoryBot.create(:event, artists: [@artist], venue: @venue)
+  	@event = FactoryBot.create(:event, artists: [@artist], venue: @venue, event_date: Time.now.to_datetime.end_of_day)
 
     visit event_path(@event)
     first('.artist-show').click

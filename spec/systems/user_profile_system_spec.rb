@@ -33,6 +33,11 @@ RSpec.describe "when a logged in user views their profile page", :type => :featu
   	expect(page).not_to have_content 'UPCOMING RSVP EVENTS'
   end
 
+  it "should not display any rsvp events if the user showing is not the logged in user", :skip_user_sign_in do
+    visit "/user_profiles/#{@user.id}"
+    expect(page).not_to have_selector :css, '.selected-events'
+  end
+
 end
 
 

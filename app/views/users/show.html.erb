@@ -3,15 +3,82 @@
 
 <%= render partial: 'layouts/notice', notice: notice %>
 
-<div class="container pad20-top">
+<div class="container pad40-top">
+
 	<div class="row">
-		<div class="col-sm-12">
-			&nbsp;
+		<div class="col-sm-12 col-md-8">
+			
+			<% if @user == current_user %>
+				<div id='selected-events'>
+					<% @events.each do |event| %>
+					
+						<div class="card pad20-bottom" style="background-image: url('/assets/event_banner.png');">
+
+						  <div class="card-body">
+						    
+						  	<div class="row">
+						  		<div class="col-sm-12 col-md-9">
+								    <div class="row">
+								    	<div class="col-sm-12">
+								    		<%= link_to event.title, event_path(event), class: 'event-title' %>
+								    	</div>
+								    </div>
+
+								    <div class="row">
+								    	<div class="col-sm-12">
+								    		<h6 class="event-text"><%= event.description %></h6>
+								    	</div>
+								    </div>
+								    
+								    <div class="row">
+								    	<div class="col-sm-12">
+								    		<h6 class="event-text"><%= event.event_date %></h6>
+								    	</div>
+								    </div>
+								  </div>
+
+								  <div class="col-sm-12 col-md-3">
+								  	
+								  	<div class="row">
+								    	<div class="col-sm-12">
+								    		<%= link_to 'Upvote Event', root_path, class: 'event-text' %>
+								    	</div>
+								    </div>
+								    <div class="row">
+								    	<div class="col-sm-12">
+								    		<%= link_to 'RSVP', new_user_rsvp_path(event_id: event.id), class: 'event-text rsvp-link' %>
+								    	</div>
+								    </div>
+
+						    	</div>
+						    </div>
+
+						  </div>
+						</div>
+						
+					<% end %>
+
+				</div>
+			<% end %>
+
+			
+		</div>
+
+		<div class="col-sm-12 col-md-4">
+
+
+			<%= image_tag '/assets/advertisement_small.png', width: '100%' %>
+
+			<%= image_tag '/assets/advertisement_tall2.png', width: '100%', class: 'pad40-top' %>
+
+			<%= image_tag '/assets/advertisement_tall4.png', width: '100%', class: 'pad40-top' %>
+
+
 
 
 		</div>
 	</div>
-</div>
 
+</div>
 
 

@@ -25,7 +25,7 @@ venue4.save
 
 8.times do
 	event = venue.events.build(
-		event_date: Time.now.to_datetime,
+		event_date: Time.now.in_time_zone("Central Time (US & Canada)").to_datetime.beginning_of_day,
 		title: 'Ekali World Tour',
 		description: 'Ekali stops in Chicago as part of his world tour.',
 		city_id: city.id,
@@ -49,7 +49,7 @@ end
 
 5.times do
 	event = venue.events.build(
-		event_date: Time.now.to_datetime + 1,
+		event_date: Time.now.in_time_zone("Central Time (US & Canada)").to_datetime + 1.days,
 		title: 'Anderson Paak and the FREE NATIONALS',
 		description: 'Anderson Paak and group THE FREE NATIONALS play in Chicago!',
 		city_id: city.id,
@@ -65,7 +65,7 @@ end
 # past events
 5.times do
 	event = venue.events.build(
-		event_date: Time.now.to_datetime - 1,
+		event_date: Time.now.in_time_zone("Central Time (US & Canada)").to_datetime - 1.days,
 		title: 'The FREE NATIONALS play in Chicago',
 		description: 'THE FREE NATIONALS play in Chicago!',
 		city_id: city.id,
@@ -78,7 +78,7 @@ end
 # past events only
 7.times do
 	event = venue.events.build(
-		event_date: Time.now.to_datetime - 1,
+		event_date: Time.now.in_time_zone("Central Time (US & Canada)").to_datetime - 1.days,
 		title: 'Kendrick Lamar DAMN Tour in Chicago',
 		description: 'The DAMN Tour stops in Chicago for a special performance',
 		city_id: city.id,
@@ -88,6 +88,9 @@ end
 
 	EventRelationship.create(event_id: event.id, artist_id: artist4.id)
 
+	# user_rsvps
+	user_rsvp = user.user_rsvps.build(event_id: event.id, first_name: 'Benjamin', last_name: 'Caneba', email: 'b.caneba@yahoo.com')
+	user_rsvp.save
 end
 
 # features
