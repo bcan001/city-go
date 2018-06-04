@@ -10,8 +10,8 @@
 						    UPCOMING RSVP EVENTS
 						  </button>
 						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:100%;">
-								<%= link_to 'UPCOMING RSVP EVENTS', venue_upcoming_events_path(id: 1), remote: true, class: 'dropdown-item' %>
-								<%= link_to 'PAST RSVP EVENTS', venue_past_events_path(id: 1), remote: true, class: 'dropdown-item' %>
+								<%= link_to 'UPCOMING RSVP EVENTS', user_upcoming_rsvp_events_path(current_user.id), remote: true, class: 'dropdown-item' %>
+								<%= link_to 'PAST RSVP EVENTS', user_past_rsvp_events_path(current_user.id), remote: true, class: 'dropdown-item' %>
 						  </div>
 						</div>
 					</div>

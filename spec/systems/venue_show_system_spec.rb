@@ -5,7 +5,7 @@ RSpec.describe "the venue show", :type => :feature do
   before :each do
     @link = FactoryBot.create(:link, owner_type: 'Venue', owner_id: 1, link_type: 'website', url: 'https://www.themidchicago.com/')
   	@venue = FactoryBot.create(:venue, city_id: 1, links: [@link])
-    @event = FactoryBot.create(:event, venue: @venue)
+    @event = FactoryBot.create(:event, venue: @venue, event_date: Time.now.to_datetime.end_of_day)
     @city = FactoryBot.create(:city, events: [@event])
 
     visit event_path(@event)
