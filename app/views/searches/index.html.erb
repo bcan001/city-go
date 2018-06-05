@@ -140,6 +140,13 @@
   venuesArrayQuery = venuesArray.filter(function (venue) { return venue.name.match(regex); });
   artistsArrayQuery = artistsArray.filter(function (artist) { return artist.name.match(regex); });
 
+
+	//   let date = new Date(Date.UTC(2015, 5, 27, 12, 0, 0))
+	// , options = {weekday: 'short', month: 'short', day: 'numeric' };
+	// console.log(date.toLocaleString('es-ES', options)); //sáb. 27 de jun.
+	
+
+
   var eventsModel = new Vue({
     el: '#event_view',
     data: {

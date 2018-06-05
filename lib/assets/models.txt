@@ -14,7 +14,9 @@ event_relationship (join between events and artists)
 
 
 what to do:
-- system test clicking on featured venues and displaying the show
-- artist show /test
+- static pages on footer
+- tests for search / vue portion. finish formating front end of search results
+- calendar feature
+- surprise me feature
 
 

@@ -12,11 +12,15 @@ RSpec.describe "when user enters something in the search bar", :type => :feature
     click_button 'Search'
   end
 
-  it "should display what the user searched for on the search index page" do
-    expect(page).to have_content @search
-	end
+ #  it "should display what the user searched for on the search index page" do
+ #    expect(page).to have_content @search
+	# end
+
+  it "should return all events, venues, and records upon search" do
 
 
+
+  end
 
 
   

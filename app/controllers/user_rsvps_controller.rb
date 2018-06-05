@@ -1,4 +1,5 @@
 class UserRsvpsController < ApplicationController
+	include ApplicationHelper
 
 	def new
 		if !current_user # there is no signed in user

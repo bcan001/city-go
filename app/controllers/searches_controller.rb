@@ -1,4 +1,5 @@
 class SearchesController < ApplicationController
+	include ApplicationHelper
 
 	def index
 		@search = params[:search]
