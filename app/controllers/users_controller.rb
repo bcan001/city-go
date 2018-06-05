@@ -22,18 +22,19 @@ class UsersController < ApplicationController
 	end
 
 
-	def edit
+	# def edit
+		
 
 
-	end
+	# end
 
-	def update
+	# def update
 
 
-	end
+	# end
 
-	def destroy
+	# def destroy
 
-	end
+	# end
 
 end
