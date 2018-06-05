@@ -38,6 +38,25 @@ RSpec.describe "when a logged in user views their profile page", :type => :featu
     expect(page).not_to have_selector :css, '.selected-events'
   end
 
+  it "should allow a logged in user to edit their profile and save it" do
+    visit "/user_profiles/#{@user.id}"
+    click_on 'Edit Profile'
+
+    # expect(page).to have_content 'Edit Profile'
+    within("#edit_user") do
+      fill_in 'user_first_name', with: 'Jimmy'
+      fill_in 'user_last_name', with: @user.last_name
+      fill_in 'user_email', with: @user.email
+      fill_in 'user_phone', with: @user.phone
+      fill_in 'user_username', with: @user.username
+      fill_in 'user_current_password', with: @user.password
+    end
+    click_button 'Save Profile'
+    @user.save
+    expect(page).to have_content 'Your account has been updated successfully.'
+    # expect(@user.first_name).to eq('Jimmy')
+  end
+
 end
 
 
