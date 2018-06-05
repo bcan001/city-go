@@ -1,4 +1,5 @@
 class ArtistsController < ApplicationController
+	include ApplicationHelper
 
 	def index
 		# for getting images:
