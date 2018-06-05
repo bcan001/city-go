@@ -3,7 +3,10 @@ class SearchesController < ApplicationController
 	def index
 		@search = params[:search]
 
-		# need frontend framework here
+	  @events = Event.all
+	  @venues = Venue.all
+	  @artists = Artist.all
+
 
 	end
 

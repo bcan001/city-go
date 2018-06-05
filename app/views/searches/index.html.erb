@@ -1,1 +1,190 @@
-<%= @search %>
+
+<!-- development version -->
+<script src="https://unpkg.com/vue@2.5.15/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+
+<div id="event_view">
+	<div class="container">
+		<div class="row pad40-top">
+			<div class="col-md-12">
+				Search
+				<input v-model="search">
+			</div>
+		</div>
+
+		<ul class="nav nav-tabs pad40-top" id="myTab" role="tablist">
+		  <li class="nav-item">
+		    <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All ({{all_count}})</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="false">Events ({{ event_count }})</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" id="venues-tab" data-toggle="tab" href="#venues" role="tab" aria-controls="venues" aria-selected="false">Venues ({{ venue_count }})</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" id="artists-tab" data-toggle="tab" href="#artists" role="tab" aria-controls="artists" aria-selected="false">Artists ({{ artist_count }})</a>
+		  </li>
+		</ul>
+		<div class="tab-content" id="myTabContent">
+		  <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+		  	
+		  	<div class="pad20-top">
+		  		{{ event_count }} events found
+		  	</div>
+		  	<hr>
+		  	<div v-for="event in events">
+					<div class="row">
+						<div class="col-12">
+							{{ event.event_date }}
+							<a v-bind:href="'http://localhost:3000/events/' + event.id">
+	              {{ event.title }}
+	            </a>
+						</div>
+					</div>
+				</div>
+
+				<div class="pad20-top">
+		  		{{ venue_count }} venues found
+		  	</div>
+		  	<hr>
+		  	<div v-for="venue in venues">
+					<div class="row">
+						<div class="col-12">
+							<a v-bind:href="'http://localhost:3000/venues/' + venue.id">
+	              {{ venue.name }}
+	            </a>
+							{{ venue.address }}
+						</div>
+					</div>
+				</div>
+
+				<div class="pad20-top">
+		  		{{ artist_count }} artists found
+		  	</div>
+		  	<hr>
+		  	<div v-for="artist in artists">
+					<div class="row">
+						<div class="col-12">
+							<a v-bind:href="'http://localhost:3000/artists/' + artist.id">
+	              {{ artist.name }}
+	            </a>
+						</div>
+					</div>
+				</div>
+
+		  </div>
+		  <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
+		  	<div class="pad20-top">
+		  		{{ event_count }} events found
+		  	</div>
+		  	<hr>
+		  	<div v-for="event in events">
+					<div class="row">
+						<div class="col-12">
+							{{ event.event_date }}
+							<a v-bind:href="'http://localhost:3000/events/' + event.id">
+	              {{ event.title }}
+	            </a>
+						</div>
+					</div>
+				</div>
+		  </div>
+		  <div class="tab-pane fade" id="venues" role="tabpanel" aria-labelledby="venues-tab">
+		  	<div class="pad20-top">
+		  		{{ venue_count }} venues found
+		  	</div>
+		  	<hr>
+		  	<div v-for="venue in venues">
+					<div class="row">
+						<div class="col-12">
+							<a v-bind:href="'http://localhost:3000/venues/' + venue.id">
+	              {{ venue.name }}
+	            </a>
+							{{ venue.address }}
+						</div>
+					</div>
+				</div>
+		  </div>
+		  <div class="tab-pane fade" id="artists" role="tabpanel" aria-labelledby="artists-tab">
+		  	<div class="pad20-top">
+		  		{{ artist_count }} artists found
+		  	</div>
+		  	<hr>
+		  	<div v-for="artist in artists">
+					<div class="row">
+						<div class="col-12">
+							<a v-bind:href="'http://localhost:3000/artists/' + artist.id">
+	              {{ artist.name }}
+	            </a>
+						</div>
+					</div>
+				</div>
+		  </div>
+		</div>
+
+	</div>
+
+</div>
+
+
+<script>
+  var eventsArray = <%= @events.to_json.html_safe %>;
+  var venuesArray = <%= @venues.to_json.html_safe %>;
+  var artistsArray = <%= @artists.to_json.html_safe %>;
+  var search = "<%= @search %>";
+
+  var regex = new RegExp(String(search));
+
+  eventsArrayQuery = eventsArray.filter(function (event) { return event.title.match(regex); });
+  venuesArrayQuery = venuesArray.filter(function (venue) { return venue.name.match(regex); });
+  artistsArrayQuery = artistsArray.filter(function (artist) { return artist.name.match(regex); });
+
+  var eventsModel = new Vue({
+    el: '#event_view',
+    data: {
+      events: eventsArrayQuery,
+      original_events: eventsArray,
+      venues: venuesArrayQuery,
+      original_venues: venuesArray,
+      artists: artistsArrayQuery,
+      original_artists: artistsArray,
+      event_count: eventsArrayQuery.length,
+      venue_count: venuesArrayQuery.length,
+      artist_count: artistsArrayQuery.length,
+      all_count: eventsArrayQuery.length + venuesArrayQuery.length + artistsArrayQuery.length,
+      search: search
+    },
+    methods: {
+      getSearchResults: function (currentSearch) {
+      	var re = new RegExp(String(currentSearch));
+
+        this.events = this.original_events.filter(function (event) { return event.title.match(re); });;
+        this.venues = this.original_venues.filter(function (venue) { return venue.name.match(re); });;
+        this.artists = this.original_artists.filter(function (artist) { return artist.name.match(re); });;
+        this.event_count = this.events.length;
+        this.venue_count = this.venues.length;
+        this.artist_count = this.artists.length;
+        this.all_count = this.event_count + this.venue_count + this.artist_count;
+      }
+    },
+    watch: {
+      search: function () {
+        this.getSearchResults(this.search);
+      }
+    }
+  });
+  // CUSTOM FUNCTIONS:
+  // function calculatePaginationPages(locationCount) {
+  //   var pageCount = 0
+  //   if (locationCount == 0) {
+  //     pageCount = 1;
+  //   } else {
+  //     pageCount = Math.ceil(locationCount/20);
+  //   }
+  //   return pageCount;
+  // }
+</script>
+
+
+
