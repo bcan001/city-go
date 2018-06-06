@@ -2,7 +2,7 @@
  strftime for Javascript
  Copyright (c) 2008, Philip S Tellis <philip@bluesmoon.info>
  All rights reserved.
- 
+ https://www.phpied.com/strftime-in-javascript/
  This code is distributed under the terms of the BSD licence
  
  Redistribution and use of this software in source and binary forms, with or without modification,

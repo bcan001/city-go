@@ -175,7 +175,7 @@
   var artistsArray = <%= @artists.to_json.html_safe %>;
   var search = "<%= @search %>";
 
-  var regex = new RegExp(String(search));
+  var regex = new RegExp(String(search),'gi');
 
   eventsArrayQuery = eventsArray.filter(function (event) { return event.title.match(regex); });
   venuesArrayQuery = venuesArray.filter(function (venue) { return venue.name.match(regex); });
@@ -200,7 +200,7 @@
     },
     methods: {
       getSearchResults: function (currentSearch) {
-      	var re = new RegExp(String(currentSearch));
+      	var re = new RegExp(String(currentSearch),'gi');
 
         this.events = this.original_events.filter(function (event) { return event.title.match(re); });;
         this.venues = this.original_venues.filter(function (venue) { return venue.name.match(re); });;
