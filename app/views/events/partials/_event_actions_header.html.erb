@@ -4,6 +4,7 @@
       <div class="col-sm-12">
         <%= link_to 'Buy Tickets', root_path %>
         <%= link_to 'Upvote', root_path %>
+        <%= link_to 'RSVP', new_user_rsvp_path(event_id: @event.id) %>
       </div>
     </div>
   </div>
