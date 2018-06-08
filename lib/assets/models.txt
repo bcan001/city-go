@@ -20,3 +20,13 @@ what to do:
 - surprise me feature
 
 
+
+=================
+
+- friendships on user my profile page on right bar. can find people to follow by seeing who has rsvp'd for the same events you have rsvp'd for.
+- show your favorites on the right bar of the my profile page, right under your friendships
+- THE FAVORITES FEATURE NEEDS TO BE IMPLEMENTED ON THE WHOLE SITE
+
+
+
+
