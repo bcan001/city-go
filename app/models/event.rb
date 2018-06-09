@@ -25,6 +25,11 @@ class Event < ApplicationRecord
 
 	scope :past_events, -> (limit) { where("events.event_date < ?", Time.now.in_time_zone("Central Time (US & Canada)").to_datetime).limit(limit) }
 
+	def rsvp_count
+		user_rsvps.count
+	end
+
+
 end
 
 
