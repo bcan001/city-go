@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :searches
   resources :user_rsvps
   resources :votes
-
+  resources :user_favorites
 
 
   root 'events#index'

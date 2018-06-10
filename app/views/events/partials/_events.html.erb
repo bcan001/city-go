@@ -44,7 +44,7 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-sm-12">
-			    		Favorite
+			    		<%= link_to 'Favorite', user_favorites_path(event_id: event.id), method: :post, class: 'event-text favorite-link' %>
 			    	</div>
 			    </div>
 

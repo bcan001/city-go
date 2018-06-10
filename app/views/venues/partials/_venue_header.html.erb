@@ -31,6 +31,9 @@
 					<% end %>
 				</div>
 
+				<div class="venue-text pad10-top pad10-bottom">
+					<%= link_to 'Favorite', user_favorites_path(venue_id: @venue.id), method: :post, class: 'venue-text favorite-link' %>
+				</div>
 		
       </div>
     </div>
