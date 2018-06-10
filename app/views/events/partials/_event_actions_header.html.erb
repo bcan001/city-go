@@ -5,7 +5,7 @@
         <%= link_to 'Buy Tickets', root_path %>
         <%= link_to 'Upvote Event', votes_path(event_id: @event.id), method: :post %>
         <%= link_to 'RSVP', new_user_rsvp_path(event_id: @event.id) %>
-				Favorite
+				<%= link_to 'Favorite', user_favorites_path(event_id: @event.id), method: :post %>
       </div>
     </div>
   </div>
