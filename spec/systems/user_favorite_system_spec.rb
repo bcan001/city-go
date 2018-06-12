@@ -34,20 +34,30 @@ RSpec.describe "when the user clicks the favorite button on an event", :type => 
 
   # favoriting events
   it "should create a favorite for the selected event if the user is logged in and they have not already favorited the event" do
-    
+    visit events_path(@event)
+    first('.favorite-link').click
+    expect(@user.user_favorites.count).to eq(1)
   end
 
   it "should unfavorite the selected event when clicking 'favorite' if the user is logged in and the have already favorited the event" do
-
+    @user_favorite = FactoryBot.create(:user_favorite, user: @user, favorite_type: 'event', favorite_id: @event.id)
+    visit events_path(@event)
+    first('.favorite-link').click
+    expect(@user.user_favorites.count).to eq(0)
   end
 
   # favoriting venues
   it "should create a favorite for the selected venue if the user is logged in and they have not already favorited the venue" do
-
+    visit venue_path(@venue)
+    first('.favorite-link').click
+    expect(@user.user_favorites.count).to eq(1)
   end
 
   it "should unfavorite the selected venue when clicking 'favorite' if the user is logged in and the have already favorited the venue" do
-
+    @user_favorite = FactoryBot.create(:user_favorite, user: @user, favorite_type: 'venue', favorite_id: @venue.id)
+    visit venue_path(@venue)
+    first('.favorite-link').click
+    expect(@user.user_favorites.count).to eq(0)
   end
 
 
