@@ -76,33 +76,47 @@
 
 		<div class="col-sm-12 col-md-4">
 
-		<div class="card" style="background-image: url('/assets/user_profile_show.png')">
-			<div class="card-body">    
-		  	<div class="row">
-		  		<div class="col-sm-12">
+		<% if @user == current_user %>
+			<div class="card" style="background-image: url('/assets/user_profile_show.png')">
+				<div class="card-body">    
+			  	<div class="row">
+			  		<div class="col-sm-12">
 
-		  			<div class="user-profile-title-sidebar">
-		  				My Friends
-		  			</div>
+			  			<div class="user-profile-title-sidebar">
+			  				My Friends
+			  			</div>
 
-		  			<div class="user-profile-title-sidebar">
-		  				My Favorites
-		  			</div>
+			  			<div class="user-profile-title-sidebar">
+			  				My Favorites
+			  			</div>
 
-		  			<div class="user-profile-title-sidebar-small">
-		  				- events
-		  			</div>
+			  			<div class="user-profile-title-sidebar-small">
+			  				- events
+			  				<% current_user.favorite_events.each do |event| %>
+			  					<p class='indent'><%= link_to event.title, event_path(event) %></p>
+			  				<% end %>
+			  			</div>
 
-		  			<div class="user-profile-title-sidebar-small">
-		  				- venues
-		  			</div>
+			  			<div class="user-profile-title-sidebar-small">
+			  				- venues
+			  				<% current_user.favorite_venues.each do |venue| %>
+			  					<p class='indent'><%= link_to venue.name, venue_path(venue) %></p>
+			  				<% end %>
+			  			</div>
 
 
 
-		  		</div>
-		  	</div>
-		  </div>
-		</div>
+			  		</div>
+			  	</div>
+			  </div>
+			</div>
+		<% else %>
+
+			<%= image_tag '/assets/advertisement_small.png', width: '100%' %>
+
+			<%= image_tag '/assets/advertisement_tall2.png', width: '100%', class: 'pad40-top' %>
+
+		<% end %>
 
 
 		</div>

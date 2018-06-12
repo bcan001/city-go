@@ -46,6 +46,22 @@ class User < ApplicationRecord
   #   rsvp_events.take(limit)
   # end
 
+  def favorite_events
+    favorite_events = []
+    user_favorites.where(favorite_type: 'event').each do |favorite_event|
+      favorite_events << Event.find(favorite_event.favorite_id)
+    end
+    favorite_events
+  end
+
+  def favorite_venues
+    favorite_venues = []
+    user_favorites.where(favorite_type: 'venue').each do |favorite_venue|
+      favorite_venues << Venue.find(favorite_venue.favorite_id)
+    end
+    favorite_venues
+  end
+
 end
 
 
