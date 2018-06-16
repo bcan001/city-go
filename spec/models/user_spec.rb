@@ -42,5 +42,31 @@ RSpec.describe User, :type => :model do
   end
 
 
+  # class methods
+  it "should return all upcoming rsvp events" do
+    @event = FactoryBot.create(:event)
+    @rsvp = FactoryBot.create(:user_rsvp, user: @user, event: @event)
+    expect(@user.upcoming_rsvp_events(10)).to eq([@event])
+  end
+
+  it "should return all past rsvp events" do
+    @event = FactoryBot.create(:event, event_date: Time.now.in_time_zone("Central Time (US & Canada)").to_datetime - 10)
+    @rsvp = FactoryBot.create(:user_rsvp, user: @user, event: @event)
+    expect(@user.past_rsvp_events(10)).to eq([@event])
+  end
+
+  it "should return all favorite events" do
+    @event = FactoryBot.create(:event)
+    @user_favorite = FactoryBot.create(:user_favorite, user: @user, favorite_type: 'event', favorite_id: @event.id)
+    expect(@user.favorite_events).to eq([@event])
+  end
+
+  it "should return all favorite venues" do
+    @venue = FactoryBot.create(:venue)
+    @user_favorite = FactoryBot.create(:user_favorite, user: @user, favorite_type: 'venue', favorite_id: @venue.id)
+    expect(@user.favorite_venues).to eq([@venue])
+  end
+ 
+
 end
 
