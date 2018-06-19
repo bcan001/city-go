@@ -16,7 +16,8 @@
 							<%= link_to artist.name, artist_path(artist), class: 'artist-show' %>
 							
 						</h3>
-						<%= link_to 'Follow', root_path %>
+
+						<%= link_to 'Follow', user_favorites_path(artist_id: artist.id), method: :post, class: 'follow-link' %>
 
 						<p><%= artist.description %></p>
 

@@ -34,6 +34,33 @@ RSpec.describe Event, :type => :model do
     expect(@event).not_to be_valid
   end
 
+  # scope/class methods
+  it "should return only events that are happening today in an array when scope 'todays_events' is called" do
+
+  end
+
+  it "should return only events that are happening tomorrow in an array when scope 'tomorrows_events' is called" do
+
+  end
+
+  it "should return all upcoming events in an array when scope 'upcoming_events' is called" do
+
+  end
+
+  it "should return all past events in an array when scope 'past_events' is called" do
+
+  end
+
+
 
 end
+
+
+
+
+
+
+
+
+
 

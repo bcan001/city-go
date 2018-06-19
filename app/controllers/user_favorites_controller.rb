@@ -6,6 +6,7 @@ class UserFavoritesController < ApplicationController
 		else
 			@event = Event.find(params[:event_id]) if params[:event_id]
 			@venue = Venue.find(params[:venue_id]) if params[:venue_id]
+			@artist = Artist.find(params[:artist_id]) if params[:artist_id]
 
 			if @event
 				if current_user.user_favorites.find_by(favorite_type: 'event', favorite_id: @event.id)
@@ -25,6 +26,15 @@ class UserFavoritesController < ApplicationController
 					user_favorite.save
 					redirect_to venue_path(@venue), notice: "You've succesfully favorited this venue"
 				end
+			elsif @artist
+				if current_user.user_favorites.find_by(favorite_type: 'artist', favorite_id: @artist.id)
+					current_user.user_favorites.find_by(favorite_type: 'artist', favorite_id: @artist.id).destroy
+					redirect_to artist_path(@artist), notice: "You've unfavorited this artist"
+				else
+					user_favorite = current_user.user_favorites.build(favorite_type: 'artist', favorite_id: @artist.id)
+					user_favorite.save
+					redirect_to artist_path(@artist), notice: "You've succesfully favorited this artist"
+				end
 			end
 		end
 	end
@@ -35,3 +45,12 @@ class UserFavoritesController < ApplicationController
 	end
 
 end
+
+
+
+
+
+
+
+
+

@@ -62,6 +62,14 @@ class User < ApplicationRecord
     favorite_venues
   end
 
+  def favorite_artists
+    favorite_artists = []
+    user_favorites.where(favorite_type: 'artist').each do |favorite_artist|
+      favorite_artists << Artist.find(favorite_artist.favorite_id)
+    end
+    favorite_artists
+  end
+
 end
 
 
