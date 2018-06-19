@@ -104,6 +104,13 @@
 			  				<% end %>
 			  			</div>
 
+			  			<div class="user-profile-title-sidebar-small">
+			  				- artists
+			  				<% current_user.favorite_artists.each do |artist| %>
+			  					<p class='indent'><%= link_to artist.name, artist_path(artist) %></p>
+			  				<% end %>
+			  			</div>
+
 
 
 			  		</div>

@@ -29,4 +29,18 @@ what to do:
 
 
 
+=======
+- upvote an artist
+- entire friends component
+
+
+
+
+
+
+
+
+
+
+
 

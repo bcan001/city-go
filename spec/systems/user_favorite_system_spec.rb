@@ -32,6 +32,12 @@ RSpec.describe "when the user clicks the favorite button on an event", :type => 
     expect(page).to have_content 'Log in'
   end
 
+  it "should redirect the user to the user sign in page if they are not currently signed in when clicking on the 'follow' button on the artist", :skip_user_create do
+    visit event_path(@event)
+    first('.follow-link').click
+    expect(page).to have_content 'Log in'
+  end
+
   # favoriting events
   it "should create a favorite for the selected event if the user is logged in and they have not already favorited the event" do
     visit events_path(@event)
@@ -53,7 +59,7 @@ RSpec.describe "when the user clicks the favorite button on an event", :type => 
     expect(@user.user_favorites.count).to eq(1)
   end
 
-  it "should unfavorite the selected venue when clicking 'favorite' if the user is logged in and the have already favorited the venue" do
+  it "should unfavorite the selected venue when clicking 'favorite' if the user is logged in and they have already favorited the venue" do
     @user_favorite = FactoryBot.create(:user_favorite, user: @user, favorite_type: 'venue', favorite_id: @venue.id)
     visit venue_path(@venue)
     first('.favorite-link').click
@@ -61,26 +67,19 @@ RSpec.describe "when the user clicks the favorite button on an event", :type => 
   end
 
 
+  # favoriting/following artists
+  it "should create a favorite for the selected artist if the user is logged in and they have not already favorited the artist" do
+    visit event_path(@event)
+    first('.follow-link').click
+    expect(@user.user_favorites.count).to eq(1)
+  end
 
-
-
-
-  #  it "should go to new user_rsvp form if the user is logged in" do
-  #    expect(page).to have_content "RSVP"
-  #  end
-
-  #  it "should create a user_rsvp for the selected event when the new_user_rsvp form is submitted with correct attributes and then redirect the user to the event page" do
-
-  #    within (".new_user_rsvp") do
-  #      fill_in 'user_rsvp[first_name]', with: @user.first_name
-  #      fill_in 'user_rsvp[last_name]', with: @user.last_name
-  #      fill_in 'user_rsvp[email]', with: @user.email
-  #    end
-  #    click_button 'Submit RSVP'
-
-  #    @user_rsvps = UserRsvp.all
-  #    expect(@user_rsvps.count).to equal(1)
-  #  end
+  it "should unfavorite the selected artist when clicking 'follow' if the user is logged in and they have already favorited the artist" do
+    @user_favorite = FactoryBot.create(:user_favorite, user: @user, favorite_type: 'artist', favorite_id: @artist.id)
+    visit event_path(@event)
+    first('.follow-link').click
+    expect(@user.user_favorites.count).to eq(0)
+  end
 
 
 

@@ -1,13 +1,13 @@
 class EventsController < ApplicationController
 	include ApplicationHelper
 
-	before_action :set_all_events, only: [:index,:tomorrows_events]
+	before_action :set_featured_events_and_venues, only: [:index,:tomorrows_events]
 
 	def index
 		# RSpotify.authenticate("", "")
 		# artists = RSpotify::Artist.search('Arctic Monkeys')
 
-		# set_all_events
+		todays_events
 	end
 
 	def show
@@ -17,12 +17,14 @@ class EventsController < ApplicationController
 
 
 	def tomorrows_events
-		# set_all_events
+		@events = Event.tomorrows_events(20)
 	end
 
-
-	def set_all_events
+	def todays_events
 		@events = Event.todays_events(20)
+	end
+
+	def set_featured_events_and_venues
 		@featured_events = Feature.featured_events(5)
 		@featured_venues = Feature.featured_venues(5)
 	end

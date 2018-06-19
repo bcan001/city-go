@@ -23,8 +23,9 @@
 
 				<div class="artist-text pad10-top pad10-bottom">
 					Upvote Artist
-					Favorite
 				</div>
+
+				<%= link_to 'Follow', user_favorites_path(artist_id: @artist.id), method: :post, class: 'follow-link' %>
 
 		
       </div>
