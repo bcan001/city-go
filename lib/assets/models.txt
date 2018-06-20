@@ -30,7 +30,7 @@ what to do:
 
 
 =======
-- upvote an artist
+- upvote event counts. favorite counts
 - entire friends component
 
 
