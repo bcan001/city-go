@@ -81,7 +81,7 @@ RSpec.describe "when the user clicks the favorite button on an event", :type => 
     expect(@user.user_favorites.count).to eq(0)
   end
 
-
+  
 
 end
 

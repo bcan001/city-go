@@ -22,7 +22,7 @@
 				</div>
 
 				<div class="artist-text pad10-top pad10-bottom">
-					Upvote Artist
+					<%= link_to 'Upvote Artist', votes_path(artist_id: @artist.id), method: :post, class: 'upvote-artist' %>
 				</div>
 
 				<%= link_to 'Follow', user_favorites_path(artist_id: @artist.id), method: :post, class: 'follow-link' %>
