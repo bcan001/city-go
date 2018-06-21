@@ -19,6 +19,14 @@ class Artist < ApplicationRecord
 		events.past_events(limit)
 	end
 
+	def upvote_count
+		Vote.where(vote_type: 'artist', vote_id: self.id).count
+	end
+
+	def favorite_count
+		UserFavorite.where(favorite_type: 'artist', favorite_id: self.id).count
+	end
+
 
 
 end
