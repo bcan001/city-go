@@ -29,6 +29,14 @@ class Event < ApplicationRecord
 		user_rsvps.count
 	end
 
+	def upvote_count
+		Vote.where(vote_type: 'event', vote_id: self.id).count
+	end
+
+	def favorite_count
+		UserFavorite.where(favorite_type: 'event', favorite_id: self.id).count
+	end
+
 
 end
 
