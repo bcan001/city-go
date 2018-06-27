@@ -26,7 +26,7 @@ class Artist < ApplicationRecord
 	def favorite_count
 		UserFavorite.where(favorite_type: 'artist', favorite_id: self.id).count
 	end
-
+	
 
 
 end

@@ -77,6 +77,21 @@ RSpec.describe "when a user tries to upvote an event", :type => :feature do
     expect(@votes.count).to equal(1)
   end
 
+
+  # display vote counts
+  it "should display the count of upvotes for an event", :skip_user_sign_in do
+    @vote = FactoryBot.create(:vote, user: @user, vote_type: 'event', vote_id: @event.id)
+    visit root_path
+    expect(page).to have_content "1 Upvotes"
+  end
+
+  it "should display the count of upvotes for an artist", :skip_user_sign_in do
+
+
+  end
+
+
+
 end
 
 

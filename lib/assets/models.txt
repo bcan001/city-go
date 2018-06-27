@@ -30,7 +30,7 @@ what to do:
 
 
 =======
-- upvote event counts. favorite counts
+- favorite counts on all pages
 - entire friends component
 
 

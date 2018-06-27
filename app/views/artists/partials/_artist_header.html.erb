@@ -21,11 +21,33 @@
 					<% end %>
 				</div>
 
+				<div class="row">
+		    	<div class="col-sm-12">
+		    		<div class="artist-text">
+		    			<%= @artist.upvote_count %> Upvotes
+		    		</div>
+		    	</div>
+		    </div>
+
 				<div class="artist-text pad10-top pad10-bottom">
 					<%= link_to 'Upvote Artist', votes_path(artist_id: @artist.id), method: :post, class: 'upvote-artist' %>
 				</div>
 
-				<%= link_to 'Follow', user_favorites_path(artist_id: @artist.id), method: :post, class: 'follow-link' %>
+				<div class="row">
+		    	<div class="col-sm-12">
+		    		<div class="artist-text">
+		    			<%= @artist.favorite_count %> Followers
+		    		</div>
+		    	</div>
+		    </div>
+
+		    <div class="artist-text pad10-top pad10-bottom">
+					<%= link_to 'Follow', user_favorites_path(artist_id: @artist.id), method: :post, class: 'follow-link' %>
+				</div>
+
+
+				
+		    
 
 		
       </div>
