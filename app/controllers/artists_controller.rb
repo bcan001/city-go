@@ -1,18 +1,9 @@
 class ArtistsController < ApplicationController
 	include ApplicationHelper
+	include ArtistsHelper
 
 	def index
-		# for getting images:
-
-		# RSpotify.authenticate("", "")
-		# artists = RSpotify::Artist.search('Arctic Monkeys')
-		# binding.pry
-
-		# Now you can access playlists in detail, browse featured content and more
-		# me = RSpotify::User.find('guilhermesad')
-
 		@artists = Artist.all
-
 	end
 
 	def show

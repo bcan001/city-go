@@ -1,11 +1,15 @@
 class EventsController < ApplicationController
 	include ApplicationHelper
+	include ArtistsHelper
 
 	before_action :set_featured_events_and_venues, only: [:index,:tomorrows_events]
 
 	def index
 		# RSpotify.authenticate("", "")
 		# artists = RSpotify::Artist.search('Arctic Monkeys')
+
+		# fetch_spotify_image('Ekali')
+
 
 		todays_events
 	end
@@ -30,8 +34,6 @@ class EventsController < ApplicationController
 	end
 
 end
-
-
 
 
 
