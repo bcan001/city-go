@@ -42,7 +42,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'pry-rails'
 gem 'rspotify', git: 'git://github.com/guilhermesad/rspotify'
-
+gem 'songkickr'
 
 # testing:
 # high level overview:
@@ -58,6 +58,7 @@ gem 'rspotify', git: 'git://github.com/guilhermesad/rspotify'
 
 
 # ==========================================
+
 
 
 group :development, :test do
