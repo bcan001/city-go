@@ -23,7 +23,7 @@ venue4.save
 
 
 
-8.times do
+18.times do
 	event = venue.events.build(
 		event_date: Time.now.in_time_zone("Central Time (US & Canada)").to_datetime.beginning_of_day,
 		title: 'Ekali World Tour',
@@ -47,7 +47,7 @@ venue4.save
 	user_rsvp.save
 end
 
-5.times do
+15.times do
 	event = venue.events.build(
 		event_date: Time.now.in_time_zone("Central Time (US & Canada)").to_datetime + 1.days,
 		title: 'Anderson Paak and the FREE NATIONALS',

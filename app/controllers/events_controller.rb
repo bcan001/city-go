@@ -6,9 +6,10 @@ class EventsController < ApplicationController
 	before_action :set_featured_events_and_venues, only: [:index,:tomorrows_events]
 
 	def index
-		fetch_events('Ekali','today')
+		# fetch_events('Ekali','today')
 
-		todays_events
+		@events = todays_events
+		@events = @events.page(params[:page]).per(10)
 	end
 
 	def show
@@ -18,11 +19,12 @@ class EventsController < ApplicationController
 
 
 	def tomorrows_events
-		@events = Event.tomorrows_events(20)
+		@events = Event.tomorrows_events
+		@events = @events.page(params[:page]).per(10)
 	end
 
 	def todays_events
-		@events = Event.todays_events(20)
+		Event.todays_events
 	end
 
 	def set_featured_events_and_venues
