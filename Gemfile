@@ -6,7 +6,7 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -59,6 +59,10 @@ gem 'songkickr'
 
 # ==========================================
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 
 group :development, :test do
@@ -68,6 +72,7 @@ group :development, :test do
   gem "database_cleaner" # added for testing
   gem "rspec-rails" # added for testing
   gem 'factory_bot_rails' # added for testing
+  gem 'sqlite3'
 end
 
 group :development do
