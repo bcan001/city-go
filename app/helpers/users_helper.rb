@@ -1,7 +1,7 @@
 module UsersHelper
 
 	def fetch_user_image(attrs)
-		'user-profile-banner'
+		return 'user-profile-banner'
 	end
 
 

@@ -13,6 +13,7 @@ module ArtistsHelper
 				# return '/assets/artist_profile.png'
 				return 'artist-profile'
 			end
+			
 		end
 	end
 
