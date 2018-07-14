@@ -28,8 +28,8 @@ class EventsController < ApplicationController
 	end
 
 	def set_featured_events_and_venues
-		@featured_events = Feature.featured_events(5)
-		@featured_venues = Feature.featured_venues(5)
+		@featured_events = Feature.where(feature_type: 'Event').take(5)
+		@featured_venues = Feature.where(feature_type: 'Venue').take(5)
 	end
 
 end
