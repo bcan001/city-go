@@ -1,18 +1,24 @@
 module ArtistsHelper
 
-	def fetch_spotify_image(artist_name,type)
+	def fetch_spotify_image(attrs)
 		begin
 			RSpotify.authenticate(ENV["CLIENT_ID"],ENV["CLIENT_SECRET"])
-			artist = RSpotify::Artist.search(artist_name)
+			artist = RSpotify::Artist.search(attrs[:artist_name])
 			return artist[0].images[0]['url']
 		rescue
-			if type == 'event'
-				return '/assets/event_banner.png'
-			elsif type == 'artist'
-				return '/assets/artist_profile.png'
+			if attrs[:type] == 'event'
+				# return '/assets/event_banner.png'
+				# return 'event-image'
+			elsif attrs[:type] == 'artist'
+				# return '/assets/artist_profile.png'
+				return 'artist-profile'
 			end
 		end
 	end
+
+	# def fetch_artist_image(attrs)
+	# 	'artist-profile-small'
+	# end
 
 	 # [#<RSpotify::Artist:0x00007ff530ca5ee0
  #  @external_urls={"spotify"=>"https://open.spotify.com/artist/0Y0QSi6lz1bPik5Ffjr8sd"},
