@@ -8,7 +8,7 @@ module ArtistsHelper
 		rescue
 			if attrs[:type] == 'event'
 				# return '/assets/event_banner.png'
-				# return 'event-image'
+				return 'event-image'
 			elsif attrs[:type] == 'artist'
 				# return '/assets/artist_profile.png'
 				return 'artist-profile'

@@ -6,14 +6,6 @@
 	background-image: image-url('artist_profile.png');
 }
 
-.artist-profile-small {
-	background-image: image-url('artist_profile.png');
-/*	width: 100%;
-	height: 100%;*/
-
-	background-size: contain;
-	background-repeat: no-repeat;
-  background-position: center center;
-  /*width:10px;*/
-  /*background-size: 300px 300px;*/
+.event-image-banner {
+	background-image: image-url('event_show.png');
 }

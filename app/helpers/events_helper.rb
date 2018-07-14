@@ -29,6 +29,10 @@ module EventsHelper
 		end
 	end
 
+	def fetch_event_background_image(attrs)
+		return 'event-image-banner'
+	end
+
 
 
 end
