@@ -1,5 +1,6 @@
 class VenuesController < ApplicationController
 	include ApplicationHelper
+	include VenuesHelper
 
 	before_action :set_venue, only: [:show,:upcoming_events,:past_events]
 

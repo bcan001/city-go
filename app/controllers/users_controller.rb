@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	include UsersHelper
 
 	before_action :set_user, only: [:show,:upcoming_rsvp_events,:past_rsvp_events]
 

@@ -82,7 +82,7 @@
 		<div class="col-sm-12 col-md-4">
 
 		<% if @user == current_user %>
-			<div class="card" style="background-image: url('/assets/user_profile_show.png')">
+			<div class="card <%= fetch_user_image({}) %>">
 				<div class="card-body">    
 			  	<div class="row">
 			  		<div class="col-sm-12">
