@@ -1,7 +1,26 @@
 /* FOR MAIN NAVBAR (WITH SEARCH)*/
 /* height has been changed to be taller */
 /*https://bootstrapious.com/p/how-to-change-bootstrap-navbar-height*/
+
+.nav-link {
+  color: #274460;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/*#navbar-toggler {
+  color: #274460;
+}*/
+/*.navbar-toggler-icon { 
+  background-color: #274460;
+}*/
+
 #main-navbar.navbar {
+  /*color: #55BEE8;*/
+  /*color: #274460;*/
+
+
   min-height: 80px;
 }
 

@@ -1,21 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="main-navbar">
-  <%= link_to 'City-Go', root_path, class: 'navbar-brand' %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg" id="main-navbar">
+
+  <%= link_to image_tag('new-Primary-logo.png', :size => "210x75"), root_path, class: 'pad40-right' %>
+
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color:#274460;">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
 
-      <li class="nav-item">
+      <li class="nav-item pad5-right">
         <%= link_to "Today's Events", root_path, class: 'nav-link' %>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item pad5-right">
         <%= link_to "Tomorrow's Events", tomorrows_events_path, class: 'nav-link' %>
       </li>
    
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown pad5-right">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Calendar
         </a>
@@ -29,9 +32,6 @@
         </div>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="#">Surprise Me!</a>
-      </li>
 
     </ul>
 
@@ -39,18 +39,18 @@
 
       <!-- devise feature test here -->
       <% if current_user %>
-        <li class="nav-item">
+        <li class="nav-item pad5-right">
           <%= link_to 'My Profile', user_profile_path(current_user), class: 'nav-link' %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item pad5-right">
           <%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete', class: 'nav-link' %>
         </li>
       <% else %>
-        <li class="nav-item">
+        <li class="nav-item pad5-right">
           <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item pad20-right">
           <%= link_to 'Register', new_user_registration_path, class: 'nav-link' %>
         </li>
       <% end %>
