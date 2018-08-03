@@ -1,0 +1,58 @@
+.pagination a, .pagination span.current, .pagination span.gap {
+    float: left;
+    padding: 0 14px;
+    line-height: 38px;
+    text-decoration: none;
+    background-color: white;
+    /*border: 1px solid #28455F;*/
+    border-left-width: 0;
+}
+
+.pagination a, .pagination .active {
+	color: #28455F;
+}
+
+/*.page-item.active .page-link {
+	color: red;
+}*/
+
+
+.pagination {
+    border-left: 1px solid #ddd;
+    .first{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .prev {
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .page{
+        padding : 0;
+        float: none;
+        border: none;
+        /*background-color: red;*/
+    }
+    .next{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .last{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+}
+
+/*
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: red;
+    border-color: #007bff;
+}
+*/
+
