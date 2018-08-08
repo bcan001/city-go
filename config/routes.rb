@@ -24,8 +24,16 @@ Rails.application.routes.draw do
   resources :votes
   resources :user_favorites
 
+  get '/latest', to: 'statics#latest', as: 'latest'
+  get '/featured', to: 'statics#featured', as: 'featured'
+  get '/find_us', to: 'statics#find_us', as: 'find_us'
+
 
   root 'events#index'
 
 
 end
+
+
+
+
