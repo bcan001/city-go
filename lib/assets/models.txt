@@ -34,6 +34,7 @@ THINGS TO DO:
 - Upvote / downvote images
 - favorite / unfavorite toggle images
 - where do buy ticket buttons go?
+- static link pages on bottom need content
 
 - favorite counts on all pages
 - entire friends component
