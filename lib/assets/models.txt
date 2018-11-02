@@ -30,8 +30,19 @@ what to do:
 
 
 =======
+THINGS TO DO:
+- Upvote / downvote images
+- favorite / unfavorite toggle images
+- where do buy ticket buttons go?
+
 - favorite counts on all pages
 - entire friends component
+- show password entries for login
+
+
+brainstorming schema for favorites:
+user_favorites (polymorphic table favorite_type=event,city,venue. favorite_id is foreign key.)
+
 
 
 
