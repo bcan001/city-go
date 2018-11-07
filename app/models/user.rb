@@ -70,6 +70,16 @@ class User < ApplicationRecord
     favorite_artists
   end
 
+
+  # toggle images for the user
+  def has_upvoted_an_event?(event)
+    votes.where(vote_type: 'event', vote_id: event.id).any? ? true : false
+  end
+
+  def has_favorited_an_event?(event)
+    favorited_events.include?(event) ? true : false
+  end
+
 end
 
 

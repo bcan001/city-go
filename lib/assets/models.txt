@@ -31,7 +31,8 @@ what to do:
 
 =======
 THINGS TO DO:
-- Upvote / downvote images
+- Upvote / downvote images X 
+- users should be able to un-upvote events too. right now they can only upvote.
 - favorite / unfavorite toggle images
 - where do buy ticket buttons go?
 - static link pages on bottom need content
