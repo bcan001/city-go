@@ -77,7 +77,7 @@ class User < ApplicationRecord
   end
 
   def has_favorited_an_event?(event)
-    favorited_events.include?(event) ? true : false
+    favorite_events.include?(event) ? true : false
   end
 
 end
