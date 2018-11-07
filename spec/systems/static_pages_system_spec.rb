@@ -27,6 +27,14 @@ RSpec.describe "when a user navigates to one of the static pages on the footer o
     visit find_us_path
     expect(page).to have_content 'FIND US!'
   end
+  
+  it "should go to the right webpage when visiting 'find us' and clicking on 'HOMEPAGE'" do
+    visit find_us_path
+    click_on 'HOMEPAGE'
+    expect(page).to have_content 'Events in Chicago'
+  end
+
+
 
 
 
